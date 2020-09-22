@@ -11,6 +11,15 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+  backend "remote" {
+    organization = "sanheli"
+    workspaces {
+      name = "learn-terraform-azure-instance"
+    }
+  }
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = "myTFResourceGroup"
   location = "westus2"
